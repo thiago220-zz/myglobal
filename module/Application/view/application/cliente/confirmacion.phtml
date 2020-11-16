@@ -1,0 +1,14 @@
+<?php
+    $this->pageBreadcrumbs()->setItems([
+            'Pagina principal'=>$this->url('home'),
+            'Cliente'=>$this->url('cliente'),
+            'Confirmación'=>$this->url('cliente', ['action' => 'confirmacion']),
+            ]);
+?>
+<h1>Gracias</h1>
+
+<p>
+  <div class="alert alert-success">
+    Responderemos a la dirección de correo electrónico que nos hayas proporcionado.
+  </div>
+</p>

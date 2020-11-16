@@ -1,0 +1,18 @@
+<?php
+
+    $this->pageBreadcrumbs()->setItems([
+            'Pagina principal'=>$this->url('home'),
+            'Cliente'=>$this->url('cliente'),
+            ]);
+?>
+<div class="row">    
+    <div class="col-12">
+        <h1>Bienvindo <b><?= $this->escapeHtml($this->identity()->getFullName()) ?></b></h1>
+        <p><a href="<?=$this->url('cliente',['action'=>'nuevo'])?>">Registrar nuevo contrato</a></p>
+        <p>Tienes <?=$this->escapeHtml($all)?> contratos</p>
+        <a href="<?=$this->url('cliente',['action'=>'todos','ver'=>'aceptado'])?>"><p class="alert alert-primary"><?=$this->escapeHtml($a)?> contratos activos.</p></a>
+        <a href="<?=$this->url('cliente',['action'=>'todos','ver'=>'activo'])?>"><p class="alert alert-success"><?=$this->escapeHtml($b)?> contratos aceptados.</p></a>
+        <a href="<?=$this->url('cliente',['action'=>'todos','ver'=>'espera'])?>"><p class="alert alert-warning"><?=$this->escapeHtml($c)?> contratos en espera.</p></a>
+        <a href="<?=$this->url('cliente',['action'=>'todos','ver'=>'rezachado'])?>"><p class="alert alert-danger"><?=$this->escapeHtml($d)?> contratos rechazados.</p></a>
+    </div>
+</div>

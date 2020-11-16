@@ -1,0 +1,17 @@
+<?php
+
+    $this->pageBreadcrumbs()->setItems([
+            'Pagina principal'=>$this->url('home'),
+            'Cliente'=>$this->url('cliente'),
+            'Error'=>$this->url('cliente', ['action' => 'error']),
+            ]);
+?>
+<h1>¡Error al enviar el correo electrónico!</h1>
+
+<p>
+  <div class="alert alert-warning">
+    Lo sentimos, pero tuvimos un problema inesperado al intentar enviar su mensaje. Por favor, inténtelo de nuevo más tarde.
+  </div>
+</p>
+
+

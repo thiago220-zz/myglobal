@@ -1,0 +1,164 @@
+<?php
+
+    $this->pageBreadcrumbs()->setItems([
+            'Pagina principal'=>$this->url('home'),
+            'Cliente'=>$this->url('cliente'),
+            'Nuevo Contrato'=>$this->url('cliente',['action'=>'nuevo']),
+            ]);
+?>
+<div class="row">    
+    <div class="col-12">
+        <h1>Nuevo contrato</h1>
+    </div>
+</div>
+
+<?php
+$form = $this->form;
+$form->get('nombre')->setAttributes([
+    'class'=>'form-control', 
+    ]);
+$form->get('apellidos')->setAttributes([
+    'class'=>'form-control', 
+    ]);
+$form->get('nif')->setAttributes([
+    'class'=>'form-control', 
+    ]);
+$form->get('dni')->setAttributes([
+    'class'=>'form-control', 
+    ]);
+$form->get('direccion')->setAttributes([
+    'class'=>'form-control', 
+    ]);
+$form->get('fecha_de_antiguedad')->setAttributes([
+    'class'=>'form-control', 
+    ]);
+$form->get('telefono')->setAttributes([
+    'class'=>'form-control', 
+    ]);
+$form->get('n_cc')->setAttributes([
+    'class'=>'form-control', 
+    ]);
+$form->get('contrato_1')->setAttributes([
+    'class'=>'form-control', 
+    ]);
+$form->get('contrato_2')->setAttributes([
+    'class'=>'form-control', 
+    ]);
+$form->get('contrato_3')->setAttributes([
+    'class'=>'form-control', 
+    ]);
+$form->get('tipo_cliente')->setAttributes([
+    'class'=>'form-control', 
+    ]);
+$form->get('status')->setAttributes([
+    'class'=>'form-control'   
+    ]);
+$form->get('tipo')->setAttributes([
+    'class'=>'form-control'   
+    ]);
+$form->get('crear')->setAttributes(['class'=>'btn btn-danger']);
+$form->prepare();
+
+?>
+
+<div class="row">
+    <div class="col-12">
+        <?= $this->form()->openTag($form); ?>
+        
+        <div class="form-group">
+            <?= $this->formLabel($form->get('nombre')); ?>
+            <?= $this->formElement($form->get('nombre')); ?>
+            <?= $this->formElementErrors($form->get('nombre')); ?>                  
+        </div>
+        
+        <div class="form-group">
+            <?= $this->formLabel($form->get('apellidos')); ?>
+            <?= $this->formElement($form->get('apellidos')); ?>
+            <?= $this->formElementErrors($form->get('apellidos')); ?>                  
+        </div> 
+        
+        <div class="form-row">
+            <div class="col">
+                <?= $this->formLabel($form->get('nif')); ?>
+                <?= $this->formElement($form->get('nif')); ?>
+                <?= $this->formElementErrors($form->get('nif')); ?>                  
+            </div> 
+
+            <div class="col">
+                <?= $this->formLabel($form->get('dni')); ?>
+                <?= $this->formElement($form->get('dni')); ?>
+                <?= $this->formElementErrors($form->get('dni')); ?>                  
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <?= $this->formLabel($form->get('direccion')); ?>
+            <?= $this->formElement($form->get('direccion')); ?>
+            <?= $this->formElementErrors($form->get('direccion')); ?>                  
+        </div>
+        
+        <div class="form-group">
+            <?= $this->formLabel($form->get('fecha_de_antiguedad')); ?>
+            <?= $this->formElement($form->get('fecha_de_antiguedad')); ?>
+            <?= $this->formElementErrors($form->get('fecha_de_antiguedad')); ?>                  
+        </div>
+        
+        <div class="form-group">
+            <?= $this->formLabel($form->get('telefono')); ?>
+            <?= $this->formElement($form->get('telefono')); ?>
+            <?= $this->formElementErrors($form->get('telefono')); ?>                  
+        </div>
+        
+        <div class="form-group">
+            <?= $this->formLabel($form->get('n_cc')); ?>
+            <?= $this->formElement($form->get('n_cc')); ?>
+            <?= $this->formElementErrors($form->get('n_cc')); ?>                  
+        </div>
+        
+        <div class="form-group">
+            <?= $this->formLabel($form->get('contrato_1')); ?>
+            <?= $this->formElement($form->get('contrato_1')); ?>
+            <?= $this->formElementErrors($form->get('contrato_1')); ?>                  
+        </div>
+        
+        <div class="form-group">
+            <?= $this->formLabel($form->get('contrato_2')); ?>
+            <?= $this->formElement($form->get('contrato_2')); ?>
+            <?= $this->formElementErrors($form->get('contrato_2')); ?>                  
+        </div>
+
+        <div class="form-group">
+            <?= $this->formLabel($form->get('contrato_3')); ?>
+            <?= $this->formElement($form->get('contrato_3')); ?>
+            <?= $this->formElementErrors($form->get('contrato_3')); ?>                  
+        </div>
+        
+        <div class="form-row">
+        
+            <div class="col">
+                <?= $this->formLabel($form->get('status')); ?>
+                <?= $this->formElement($form->get('status')); ?>
+                <?= $this->formElementErrors($form->get('status')); ?>                  
+            </div>
+
+            <div class="col">
+                <?= $this->formLabel($form->get('tipo')); ?>
+                <?= $this->formElement($form->get('tipo')); ?>
+                <?= $this->formElementErrors($form->get('tipo')); ?>                  
+            </div>
+
+            <div class="col">
+                <?= $this->formLabel($form->get('tipo_cliente')); ?>
+                <?= $this->formElement($form->get('tipo_cliente')); ?>
+                <?= $this->formElementErrors($form->get('tipo_cliente')); ?>                  
+            </div>
+        
+        </div>
+        <div class="form-row my-4">
+            <div class="col">
+                <?= $this->formElement($form->get('crear')); ?>
+            </div>
+        </div>
+        <?= $this->form()->closeTag(); ?>
+    </div>    
+</div>   

@@ -1,0 +1,57 @@
+<?php
+
+    $this->pageBreadcrumbs()->setItems([
+            'Pagina principal'=>$this->url('home'),
+            'Cliente'=>$this->url('cliente'),
+            'Todos clientes'=>$this->url('cliente',['action'=>'todos']),
+            ]);
+?>
+<div class="row">    
+    <div class="col-12">
+        <h1>Todos clientes</h1>
+        <p><a href="<?=$this->url('cliente',['action'=>'nuevo'])?>">Registrar nuevo contrato</a></p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        <table class="table table-striped">
+
+   <tr>
+        <th>ID</th>
+        <th>Cliente</th>
+        <th>Tipo</th>
+        <th>Status</th>        
+        <th>Acción</th>        
+    </tr>
+    
+    <?php foreach ($clientes as $cliente): ?>
+        <tr>
+            <td><?= $this->escapeHtml($cliente->getId()); ?></td>
+            <td>
+                <a href="<?= $this->url('cliente', ['action'=>'detalles', 'id'=>$cliente->getId()]); ?>">
+                    <?= $this->escapeHtml($cliente->getNombre()); ?>
+                </a> 
+            </td>
+            <td><?= $this->escapeHtml($clienteManager->getTypeAsString($cliente)); ?></td>                   
+            <td><?= $clienteManager->getClienteStatusAsString($cliente); ?></td>
+            <td>
+                <a class="btn btn-info" href="<?= $this->url('cliente', 
+                        ['action'=>'editar', 'id'=>$cliente->getId()]); ?>">
+                    <span class="glyphicon glyphicon-pencil" ></span> Editar
+                </a>
+                <a class="btn btn-danger" href="<?= $this->url('cliente',
+                        ['action'=>'eliminar', 'id'=>$cliente->getId()]); ?>">
+                    <span class="glyphicon glyphicon-remove"></span> Eliminar
+                </a>
+            </td>    
+        </tr>
+    <?php    endforeach; ?>
+    </table>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        <?= $this->paginationControl($clientes,'Sliding','application/partial/paginator',['route' => 'cliente/todos']); ?>
+
+    </div>
+</div>

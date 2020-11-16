@@ -1,0 +1,62 @@
+<?php
+$this->pageBreadcrumbs()->setItems([
+    'Pagina principal' => $this->url('home'),
+    'Cliente' => $this->url('cliente'),
+    'Contratos' => $this->url('cliente', ['action' => 'contratos']),
+]);
+?>
+<div class="row">    
+    <div class="col-12">
+        <h1>Los contratos</h1>
+        <div class="d-flex justify-md-content-around my-4 flex-wrap row">
+            <div class="p-1 col-4 col-md-2">
+                <a href="<?= $this->basePath("docs/contrato_luxe.pdf")?>" >
+                    <figure class="figure">
+                        <img src="<?= $this->basePath('img/pdf.png') ?>" class="figure-img img-fluid" alt="Contrato Luxe">
+                        <figcaption class="figure-caption">Contrato Luxe</figcaption>
+                    </figure>
+                </a>
+            </div>
+            <div class="p-1 col-4 col-md-2">
+                <a href="<?= $this->basePath("docs/contrato_pamm.pdf")?>">
+                    <figure class="figure">
+                        <img src="<?= $this->basePath('img/pdf.png') ?>" class="figure-img img-fluid rounded" alt="Contrato PAMM">
+                        <figcaption class="figure-caption">Contrato PAMM</figcaption>
+                    </figure>
+                </a>                
+            </div>
+            <div class="p-1 col-4 col-md-2">
+                <a href="<?= $this->basePath("docs/dossie_venta.pdf")?>">
+                    <figure class="figure">
+                        <img src="<?= $this->basePath('img/pdf.png') ?>" class="figure-img img-fluid rounded" alt="Dossier venta">
+                        <figcaption class="figure-caption">Dossier venta</figcaption>
+                    </figure>
+                </a>                
+            </div>
+            <div class="p-1 col-4 col-md-2">
+                <a href="<?= $this->basePath("docs/dossie_gestorias.pdf")?>">
+                    <figure class="figure">
+                        <img src="<?= $this->basePath('img/pdf.png') ?>" class="figure-img img-fluid rounded" alt="Dossier gestorias">
+                        <figcaption class="figure-caption">Dossier gestorias</figcaption>
+                    </figure>
+                </a>                
+            </div>
+            <div class="p-1 col-4 col-md-2">
+                <a href="<?= $this->basePath("docs/dossie_software.pdf")?>">
+                    <figure class="figure">
+                        <img src="<?= $this->basePath('img/pdf.png') ?>" class="figure-img img-fluid rounded" alt="Dossier software">
+                        <figcaption class="figure-caption">Dossier software</figcaption>
+                    </figure>
+                </a>                
+            </div>
+            <div class="p-1 col-4 col-md-2">
+                <a href="<?= $this->basePath("docs/dossie_hardware.pdf")?>">
+                    <figure class="figure">
+                        <img src="<?= $this->basePath('img/pdf.png') ?>" class="figure-img img-fluid rounded" alt="Dossier hardware">
+                        <figcaption class="figure-caption">Dossier hardware</figcaption>
+                    </figure>
+                </a>                
+            </div>
+        </div>
+    </div>
+</div>

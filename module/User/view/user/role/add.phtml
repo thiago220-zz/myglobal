@@ -1,0 +1,69 @@
+<?php
+$this->headTitle('Agregar rol');
+
+$this->mainMenu()->setActiveItemId('roles');
+
+$this->pageBreadcrumbs()->setItems([
+            'Página de inicio'=>$this->url('home'),
+            'Administrar roles'=>$this->url('roles'),
+            'Agregar rol'=>$this->url('roles', ['action'=>'add'])
+            ]);
+
+$form->get('name')->setAttributes([
+    'class'=>'form-control', 
+    'placeholder'=>'Ingrese su nombre'
+    ]);
+
+$form->get('description')->setAttributes([
+    'class'=>'form-control', 
+    'placeholder'=>'Ingrese descripción'
+    ]);
+
+$form->get('inherit_roles')->setAttributes([
+    'class'=>'form-control', 
+    ]);
+
+$form->get('submit')->setAttributes(['class'=>'btn btn-danger']);
+
+$form->prepare();
+?>
+
+<h1>Agregar rol</h1>
+
+<p>
+    Complete el siguiente formulario y haga clic en el botón <i> Crear </i>.
+</p>
+
+<div class="row">
+    <div class="col-md-6">
+        <?= $this->form()->openTag($form); ?>
+        
+        <div class="form-group">
+            <?= $this->formLabel($form->get('name')); ?>
+            <?= $this->formElement($form->get('name')); ?>
+            <?= $this->formElementErrors($form->get('name')); ?>                  
+        </div>
+        
+        <div class="form-group">
+            <?= $this->formLabel($form->get('description')); ?>
+            <?= $this->formElement($form->get('description')); ?>
+            <?= $this->formElementErrors($form->get('description')); ?>                  
+        </div>
+        
+        <div class="form-group">
+            <?= $this->formLabel($form->get('inherit_roles')); ?>
+            <?= $this->formElement($form->get('inherit_roles')); ?>
+            <?= $this->formElementErrors($form->get('inherit_roles')); ?>
+        </div>
+        
+        <?= $this->formElement($form->get('csrf')); ?>
+        
+        <?= $this->formElement($form->get('submit')); ?>
+        
+        <?= $this->form()->closeTag(); ?>
+    </div>    
+</div>   
+
+
+
+

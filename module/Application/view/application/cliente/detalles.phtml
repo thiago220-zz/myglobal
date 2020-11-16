@@ -1,0 +1,88 @@
+<?php
+
+    $this->pageBreadcrumbs()->setItems([
+            'Pagina principal'=>$this->url('home'),
+            'Cliente'=>$this->url('cliente'),
+            'Todos clientes'=>$this->url('cliente',['action'=>'todos']),
+            "Detalles {$cliente->getNombre()}"=>$this->url('cliente',['action'=>'detalles','id'=> $cliente->getId()]),
+            ]);
+?>
+<div class="row">    
+    <div class="col-12">
+        <h1><b><?=$this->escapeHtml($cliente->getNombre()." ".$cliente->getApellidos())?></b> - <small><i><?= $this->escapeHtml($clienteManager->getClienteTypeAsString($cliente))?></i></small></h1>
+        <h2><?= $this->escapeHtml($clienteManager->getTypeAsString($cliente))." - ".$clienteManager->getClienteStatusAsString($cliente) ?></h2>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        <table class="table">  
+            <tbody>
+                <tr>
+                    <td><b>NIF</b></th>
+                    <td><?=$this->escapeHtml($cliente->getNIF())?></td>
+                    <td><b>DIN</b></td>
+                    <td><?=$this->escapeHtml($cliente->getDNI())?></td>
+                </tr>
+                <tr>
+                    <td><b>Dirección</b></th>
+                    <td colspan="3"><?=$this->escapeHtml($cliente->getDireccion())?></td>
+                </tr>
+                <tr>
+                    <td><b>Telefono</b></th>
+                    <td colspan="3"><?=$this->escapeHtml($cliente->getTelefono())?></td>
+                </tr>
+                <tr>
+                    <td><b>Fecha de Antiguidad</b></th>
+                    <td><?=$this->escapeHtml($cliente->getFechaDeAntiguedad())?></td>
+                    <td><b>Nº CC</b></td>
+                    <td><?=$this->escapeHtml($cliente->getNCC())?></td>
+                </tr>
+            </tbody>
+        </table>
+        <h2>Contratos</h2>
+        <div class="d-flex justify-md-content-around my-4 flex-wrap row">
+            <?php 
+                if($cliente->getContrato1()!=""):
+            ?>
+            <div class="p-1 col-4 col-md-2">
+                <a href="<?= $this->basePath("docs/upload/{$cliente->getContrato1()}")?>" >
+                    <figure class="figure">
+                        <img src="<?= $this->basePath('img/pdf.png') ?>" class="figure-img img-fluid" alt="Contrato Luxe">
+                        <figcaption class="figure-caption"><?=$cliente->getContrato1()?></figcaption>
+                    </figure>
+                </a>
+            </div>
+            <?php 
+                endif;
+            ?>
+            <?php 
+                if($cliente->getContrato2()!=""):
+            ?>
+            <div class="p-1 col-4 col-md-2">
+                <a href="<?= $this->basePath("docs/upload/{$cliente->getContrato2()}")?>" >
+                    <figure class="figure">
+                        <img src="<?= $this->basePath('img/pdf.png') ?>" class="figure-img img-fluid" alt="Contrato Luxe">
+                        <figcaption class="figure-caption"><?=$cliente->getContrato2()?></figcaption>
+                    </figure>
+                </a>
+            </div>
+            <?php 
+                endif;
+            ?>
+            <?php 
+                if($cliente->getContrato3()!=""):
+            ?>
+            <div class="p-1 col-4 col-md-2">
+                <a href="<?= $this->basePath("docs/upload/{$cliente->getContrato3()}")?>" >
+                    <figure class="figure">
+                        <img src="<?= $this->basePath('img/pdf.png') ?>" class="figure-img img-fluid" alt="Contrato Luxe">
+                        <figcaption class="figure-caption"><?=$cliente->getContrato3()?></figcaption>
+                    </figure>
+                </a>
+            </div>
+            <?php 
+                endif;
+            ?>
+        </div>
+    </div>
+</div>

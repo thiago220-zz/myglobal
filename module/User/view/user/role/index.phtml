@@ -1,0 +1,67 @@
+<?php
+$this->headTitle('Roles');
+
+$this->mainMenu()->setActiveItemId('roles');
+
+$this->pageBreadcrumbs()->setItems([
+            'Página de inicio'=>$this->url('home'),
+            'Administrar roles'=>$this->url('roles'),
+            ]);
+?>
+
+<h1>Administrar roles</h1>
+
+<?= $this->flashMessenger()->render('error', ['alert', 'alert-warning']); ?>
+<?= $this->flashMessenger()->render('success', ['alert', 'alert-success']); ?>
+<?= $this->flashMessenger()->render('info', ['alert', 'alert-info']); ?>
+
+<p>
+<a class="btn btn-danger" href="
+    <?= $this->url('roles', ['action'=>'add']); ?>">
+    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Nuevo rol
+</a>
+</p>
+
+<table class="table table-striped">
+
+   <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Descripción</th>
+        <th>Fecha de creacion</th>
+        <th>Accionnes</th>        
+    </tr>
+    
+    <?php foreach ($roles as $role): ?>
+    
+    <tr>
+        <td><?= $this->escapeHtml($role->getId()); ?></td>
+        <td>
+            <a href="<?= $this->url('roles', ['action'=>'view', 'id'=>$role->getId()]); ?>">
+                <?= $this->escapeHtml($role->getName()); ?>
+            </a> 
+        </td>
+        <td><?= $this->escapeHtml($role->getDescription()); ?></a> 
+        </td>
+        <td><nobr><?= $this->escapeHtml($role->getDateCreated()); ?></nobr></td>        
+        <td>
+            </nobr>
+            <a class="btn btn-info" href="<?= $this->url('roles', 
+                    ['action'=>'edit', 'id'=>$role->getId()]); ?>">
+                <span class="glyphicon glyphicon-pencil" ></span> Editar
+            </a>
+            <a class="btn btn-danger" href="<?= $this->url('roles',
+                    ['action'=>'delete', 'id'=>$role->getId()]); ?>">
+                <span class="glyphicon glyphicon-remove"></span> Eliminar
+            </a>
+            </nobr>
+        </td>    
+    </tr>
+        
+    <?php endforeach; ?>   
+    
+</table>
+
+
+
+

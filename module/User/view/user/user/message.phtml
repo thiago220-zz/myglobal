@@ -1,0 +1,31 @@
+<?php
+$this->headTitle('Gracias');
+?>
+
+<div class=" justify-content-center">
+    <div class="col-md-5">
+        <h1>Restablecer la contraseña</h1>
+
+        <?php if ($id == 'sent'): ?>
+            <p>
+                Se han enviado instrucciones para restablecer la contraseña a su dirección de correo electrónico.
+            </p>
+        <?php elseif ($id == 'invalid-email'): ?>
+            <p>
+                No hay ningún usuario con dicho correo electrónico o el usuario está inactivo.
+            </p>
+        <?php elseif ($id == 'set'): ?>
+            <p>
+                Su nueva contraseña se ha establecido correctamente.
+            </p>
+            <p>
+                Volver a <a href="<?= $this->url('login'); ?>">página de inicio de sesión</a>.
+            </p>
+        <?php elseif ($id == 'failed'): ?>
+
+            Clave de reinicio no válida o puede haber caducado. Por favor devuelva 
+            <a href="<?= $this->url('reset-password') ?>">aquí</a> e intente restablecer su contraseña nuevamente.
+            </p>
+        <?php endif; ?>
+    </div>
+</div>    

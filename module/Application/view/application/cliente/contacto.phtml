@@ -1,0 +1,49 @@
+<?php
+
+    $this->pageBreadcrumbs()->setItems([
+            'Pagina principal'=>$this->url('home'),
+            'Cliente'=>$this->url('cliente'),
+            'Contacto'=>$this->url('cliente', ['action' => 'contacto']),
+            ]);
+    
+$form = $this->form;
+$form->prepare();
+  
+$form->get('asunto')->setAttributes([
+  'class'=>'form-control', 
+  'placeholder'=>'Escriba su tema aquí'
+  ]);
+  
+$form->get('cuerpo')->setAttributes([
+  'class'=>'form-control', 
+  'rows'=>6, 
+  'placeholder'=>'Escriba su mensaje aquí'
+  ]);
+  
+$form->get('enviar')->setAttributes(['class'=>'btn btn-danger']);
+?>
+
+<h1>Contáctenos</h1>
+
+<div class="row">
+  <div class="col-12">
+    <?= $this->form()->openTag($form); ?>        
+        
+    <div class="form-group">
+      <?= $this->formLabel($form->get('asunto')); ?>
+      <?= $this->formElement($form->get('asunto')); ?>
+      <?= $this->formElementErrors($form->get('asunto')); ?>
+    </div>
+        
+    <div class="form-group">
+      <?= $this->formLabel($form->get('cuerpo')); ?>
+      <?= $this->formElement($form->get('cuerpo')); ?>
+      <?= $this->formElementErrors($form->get('cuerpo')); ?>
+    </div>
+        
+    <?= $this->formElement($form->get('enviar')); ?>
+        
+    <?= $this->form()->closeTag(); ?>
+  </div>    
+</div>
+
